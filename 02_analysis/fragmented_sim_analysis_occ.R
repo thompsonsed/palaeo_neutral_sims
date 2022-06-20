@@ -244,12 +244,15 @@ p_all <- single_param_result %>%
   ) +
 
   geom_line(aes(x = midpoint, y = value_real, linetype = "Fossil record")) +
-  scale_colour_viridis("Remaining\nhabitat %", discrete = TRUE, begin = 0.2, end = 0.65, option = "plasma",
+  scale_color_brewer("Remaining\nhabitat %", type="qual", palette=2,
   		     breaks=c(1.0, 0.8, 0.4, 0.2),
   		     labels=c("100","80","40","20")) +
-  scale_fill_viridis("Remaining\nhabitat %", discrete = TRUE, begin = 0.2, end = 0.65, option = "plasma",
-  		   breaks=c(1.0, 0.8, 0.4, 0.2),
-  		   labels=c("100","80","40","20")) +
+  scale_fill_brewer("Remaining\nhabitat %", type="qual", palette=2,
+			   breaks=c(1.0, 0.8, 0.4, 0.2),
+			   labels=c("100","80","40","20")) +
+  # scale_fill_viridis("Remaining\nhabitat %", discrete = TRUE, begin = 0.2, end = 0.65, option = "plasma",
+  		   # breaks=c(1.0, 0.8, 0.4, 0.2),
+  		   # labels=c("100","80","40","20")) +
   scale_linetype_discrete("") + scale_x_reverse() +
   facet_grid(metric ~ tetrapod_group,
     scales = "free_y",
